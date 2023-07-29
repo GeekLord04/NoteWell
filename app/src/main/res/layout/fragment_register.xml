@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".registerFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <TextView
+            android:id="@+id/createAcc"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/montserrat_medium"
+            android:paddingLeft="15dp"
+            android:layout_marginTop="80dp"
+            android:text="Create New Account"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/info_txt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/montserrat"
+            android:paddingLeft="15dp"
+            android:text="Please enter all the required details"
+            android:textSize="16dp" />
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:ems="10"
+            android:textSize="20dp"
+            android:layout_marginTop="50dp"
+            android:inputType="text"
+            android:textColorHint="#605050"
+            android:hint="Enter username" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="20dp"
+            android:layout_marginTop="14dp"
+            android:textColorHint="#605050"
+            android:hint="Enter email" />
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:ems="10"
+            android:textSize="20dp"
+            android:inputType="textPassword"
+            android:layout_marginTop="14dp"
+            android:textColorHint="#605050"
+            android:hint="Enter password" />
+
+        <Button
+            android:id="@+id/signup_btn"
+            style="@style/Widget.Material3.Button"
+            android:layout_width="150dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="113dp"
+            android:layout_marginTop="70dp"
+            android:backgroundTint="#353535"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Signup"
+            android:textSize="19dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Already have an account?"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat"/>
+
+
+
+
+    </LinearLayout>
+</ScrollView>
