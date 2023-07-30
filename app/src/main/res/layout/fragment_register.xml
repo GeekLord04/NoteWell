@@ -79,11 +79,14 @@
             android:gravity="center"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Already have an account?"
+            android:id="@+id/txtLogin"
+            android:layout_width="290dp"
+            android:layout_height="30dp"
+            android:text="Already have an account? Log In"
             android:textSize="17dp"
             android:gravity="center"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="50dp"
             android:fontFamily="@font/montserrat"/>
 
 
