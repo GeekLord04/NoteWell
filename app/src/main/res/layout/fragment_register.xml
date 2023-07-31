@@ -38,12 +38,13 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:ems="10"
-            android:textSize="20dp"
             android:layout_marginTop="50dp"
+            android:ems="10"
+            android:hint="Enter username"
             android:inputType="text"
             android:textColorHint="#605050"
-            android:hint="Enter username" />
+            android:textSize="20dp" />
+
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
