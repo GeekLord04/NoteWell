@@ -41,15 +41,15 @@ class registerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.signupBtn.setOnClickListener{
-
             val validationResult = userValidation()
             if (validationResult.first){
-                authViewModel.signupUser(getUserRequest())
-                findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
+                val userReq = getUserRequest()
+                authViewModel.registerUser(userReq)
             }
             else{
                 Toast.makeText(this.context, validationResult.second, Toast.LENGTH_SHORT).show()
             }
+            //authViewModel.registerUser(UserRequest("chiragpc6@gmail.com","123456","chirag"))  -> Testing purpose
 
         }
 
@@ -65,12 +65,12 @@ class registerFragment : Fragment() {
         val username = binding.username.text.toString()
         val emailAdd = binding.email.text.toString()
         val pass = binding.pass.text.toString()
-        return UserRequest(username,emailAdd,pass)
+        return UserRequest(emailAdd,pass,username)
     }
 
     private fun userValidation(): Pair<Boolean, String> {
         val userRequest = getUserRequest()
-        return inputValidationHelper().userInputValidation(userRequest.username,userRequest.email,userRequest.password)
+        return inputValidationHelper().userInputValidation(userRequest.username,userRequest.email,userRequest.password, false)
     }
 
     private fun bindObserver() {

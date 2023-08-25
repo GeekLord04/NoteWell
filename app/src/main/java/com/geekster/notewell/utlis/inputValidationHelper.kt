@@ -5,9 +5,9 @@ import android.util.Patterns
 
 class inputValidationHelper {
 
-    fun userInputValidation(username : String, email : String, password : String) : Pair<Boolean, String>{
+    fun userInputValidation(username : String, email : String, password : String, isLogin : Boolean) : Pair<Boolean, String>{
         var result = Pair(true, "")
-        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
+        if ((!isLogin && TextUtils.isEmpty(username)) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)){
             result = Pair(false, "Please fillup all the details")
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){

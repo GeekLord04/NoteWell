@@ -17,13 +17,10 @@ class AuthViewModel @Inject constructor(private val userRepository: UserReposito
 
     val userResponseLiveData : LiveData<NetworkResult<UserResponse>>
         get() = userRepository.userResponseLiveData
-    fun signupUser(userRequest: UserRequest){
-
+    fun registerUser(userRequest: UserRequest){
         viewModelScope.launch {
             userRepository.registerUser(userRequest)
         }
-
-//        userRepository.registerUser(userRequest)        //error because registerUser() is a suspend function -> Launch coroutine
     }
     fun loginUser(userRequest: UserRequest){
         viewModelScope.launch {
