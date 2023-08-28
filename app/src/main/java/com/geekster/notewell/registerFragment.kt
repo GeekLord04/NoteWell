@@ -15,8 +15,10 @@ import com.geekster.notewell.databinding.FragmentRegisterBinding
 import com.geekster.notewell.models.UserRequest
 import com.geekster.notewell.utlis.Constants.TAG
 import com.geekster.notewell.utlis.NetworkResult
+import com.geekster.notewell.utlis.TokenManager
 import com.geekster.notewell.utlis.inputValidationHelper
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class registerFragment : Fragment() {
@@ -26,6 +28,8 @@ class registerFragment : Fragment() {
 
     private val authViewModel by viewModels<AuthViewModel>()
 
+    @Inject
+    lateinit var tokenManager : TokenManager
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +37,10 @@ class registerFragment : Fragment() {
 
         _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
+        if (tokenManager.getToken() != null){
+            findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
 
+        }
         return binding.root
     }
 
@@ -77,8 +84,8 @@ class registerFragment : Fragment() {
         authViewModel.userResponseLiveData.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is NetworkResult.Success -> {
-                    //token
-                    findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                    tokenManager.saveToken(it.data!!.token)
+                    findNavController().navigate(R.id.action_registerFragment_to_mainFragment)
                 }
 
                 is NetworkResult.Error -> {
