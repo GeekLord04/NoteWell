@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@drawable/note_background"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:fontFamily="@font/montserrat_medium_italic"
+        android:text="How to draw a professional wireframe?"
+        android:textColor="#000"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/montserrat"
+        android:text="There are various process of drawing a wireframe and some of them are as difficult as rocket science"
+        android:textColor="#000"
+        android:textSize="13dp"/>
+
+
+</LinearLayout>
