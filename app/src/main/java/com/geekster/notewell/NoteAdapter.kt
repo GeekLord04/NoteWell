@@ -1,4 +1,5 @@
 package com.geekster.notewell
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -7,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.geekster.notewell.databinding.NoteItemBinding
 import com.geekster.notewell.models.NoteResponse
 
-class NoteAdapter() :
+class NoteAdapter(private val onNoteClicked: (NoteResponse) -> Unit) :
     ListAdapter<NoteResponse, NoteAdapter.NoteViewHolder>(ComparatorDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -28,9 +29,10 @@ class NoteAdapter() :
         fun bind(note: NoteResponse) {
             binding.title.text = note.title
             binding.desc.text = note.description
-//            binding.root.setOnClickListener {
-//                onNoteClicked(note)
-//            }
+            binding.desc.setTextColor(Color.parseColor("#bdbdbd"))
+            binding.root.setOnClickListener {
+                onNoteClicked(note)
+            }
         }
 
     }

@@ -9,16 +9,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.geekster.notewell.api.NotesAPI
 import com.geekster.notewell.databinding.FragmentMainBinding
-import com.geekster.notewell.utlis.Constants.TAG
+import com.geekster.notewell.models.NoteResponse
 import com.geekster.notewell.utlis.NetworkResult
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class mainFragment : Fragment() {
@@ -36,7 +33,7 @@ class mainFragment : Fragment() {
     ): View? {
 
         _binding = FragmentMainBinding.inflate(inflater, container,false)
-        adapter = NoteAdapter()
+        adapter = NoteAdapter(::onNoteCLicked)
         return binding.root
     }
 
@@ -47,6 +44,9 @@ class mainFragment : Fragment() {
         noteViewModel.getNotes()
         binding.noteList.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         binding.noteList.adapter = adapter
+        binding.addNoteBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_addNoteFragment)
+        }
     }
 
     private fun bindObserver() {
@@ -63,6 +63,12 @@ class mainFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun onNoteCLicked(noteResponse: NoteResponse){
+        val bundle = Bundle();
+        bundle.putString("note", Gson().toJson(noteResponse))
+        findNavController().navigate(R.id.action_mainFragment_to_addNoteFragment,bundle)
     }
 
     override fun onDestroyView() {

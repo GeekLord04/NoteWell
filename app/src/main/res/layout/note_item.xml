@@ -5,6 +5,8 @@
     android:layout_margin="8dp"
     android:background="@drawable/note_background"
     android:orientation="vertical"
+    android:alpha="0.6"
+    android:elevation="5dp"
     android:padding="16dp">
     <TextView
         android:layout_width="match_parent"
@@ -12,7 +14,7 @@
         android:id="@+id/title"
         android:fontFamily="@font/montserrat_medium_italic"
         android:text="How to draw a professional wireframe?"
-        android:textColor="#000"
+        android:textColor="#FFFFFF"
         android:textSize="18dp"/>
 
     <TextView
@@ -22,7 +24,7 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/montserrat"
         android:text="There are various process of drawing a wireframe and some of them are as difficult as rocket science"
-        android:textColor="#000"
+
         android:textSize="13dp"/>
 
 
