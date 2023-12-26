@@ -13,5 +13,6 @@ A simple Note taking app built in Kotlin using the MVVM architecture and Node.js
 - Jetpack Navigation Framework
 - Node.js 
 
-
+## Demo
+https://github.com/GeekLord04/NoteWell/assets/84928799/d0607ff4-e5cf-4fc4-8a0b-e499b10b332b
 
