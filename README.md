@@ -6,7 +6,7 @@ A simple Note taking app built in Kotlin using the MVVM architecture and Node.js
 ## Tech Stacks
 - Kotlin
 - Retrofit for API communication
-- RecyclerView for displaying cryptocurrency data
+- RecyclerView for displaying notes
 - ViewModel and LiveData for managing UI-related data
 - Coroutines
 - HILT for Dependency Injection
